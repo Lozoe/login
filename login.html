@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <script type="text/javascript">
+    function ff() {
+        var user = document.form1.username.value;
+        var pwd = document.form1.pwd.value;
+        if (user === "") {
+            alert("请输入账号");
+            document.form1.username.focus();
+            return;
+        }
+        if (pwd === "") {
+            alert("请输入密码");
+            document.form1.pwd.focus();
+            return;
+        }
+        if(validate()===true) {
+            document.form1.submit();
+        }
+        
+    }
+    function ff1() {
+       //document.form1.username.focus();
+        document.forms[0].username.focus();
+    }
+    var code='';//在全局定义验证码
+    function createCode() {
+        code='';//将验证码初始化为空
+        var codeLength=4;//定义验证码的长度为4
+        var checkCode=document.getElementById("checkCode");
+        checkCode.value='';
+        var selectChar=new Array(0,1,2,3,4,5,6,7,8,9,'A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
+        for(var i=0;i<codeLength;i++) {
+            var charIndex=Math.floor(Math.random()*34);
+            code+=selectChar[charIndex];
+        }
+        if(code.length!=codeLength) {
+            createCode();
+        }
+        checkCode.innerHTML=code;
+    }
+    function validate() {
+        var inputCode=document.getElementById("checkNum").value.toUpperCase();
+        if(inputCode.length<=0){
+            alert("请输入正确的验证码！");
+            document.getElementById("checkNum").focus();
+            return false;
+        }else if(inputCode!=code){
+            alert("验证码输入错误！");
+            createCode();
+            document.getElementById("checkNum").focus();
+            return false;
+        }else {
+            //alert("验证码通过！");
+            return true;
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <h1 class="title">Welcome to our theme park</h1>
+    <div id="container">
+        <form action="javascript:alert('login success!')"method="post" accept-charset="utf-8" name="form1">
+            <table>
+                <tr>
+                    <td colspan="" rowspan="" headers="">User：</td>
+                    <td colspan="" rowspan="" headers="">
+                        <input type="text" id="username" name="username">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="" rowspan="" headers="">Password：</td>
+                    <td colspan="" rowspan="" headers="">
+                        <input type="password" id="pwd" name="pwd">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="" rowspan="" headers="">Verification</td>
+                    <td>
+                        <input type="text" name="" value="" id="checkNum" onfocus="javascript:if(this.value=='请输入验证码')this.value='';"/>
+                        <a href="javascript:void(0);">
+                            <div id="checkCode" onclick="createCode()"></div>
+                        </a>
+                    </td>
+                </tr>
+                <tr align="center">
+                	 <td colspan="2" rowspan="" headers="">
+                        <input type="radio" name="power" value="Administrator" checked="checked" id="adRadio"/>Administrator
+                        <input type="radio" name="power" value="User" id="userRadio"/>User
+                    </td>                	
+                </tr>
+                <tr align="center">
+                    <td colspan="2" rowspan="" headers="">
+                        <input type="button" value="Login" onclick="ff()" class="submit">
+                        <input type="reset" value="Reset" class="reset" onclick="ff1();">
+                    </td>
+                </tr>
+                
+            </table>
+        </form>
+    </div>
+    <script>
+        window.onload=function() {
+            createCode();
+        };
+    </script>
+</body>
+
+</html>

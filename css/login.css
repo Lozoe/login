@@ -1,0 +1,102 @@
+body,
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url(../images/login.jpg) no-repeat left top;
+    background-size: 100%;
+}
+
+.title {
+    text-align: center;
+    margin-top: 50px;
+    text-shadow: 2px 2px 2px blue;
+    color: aliceblue;
+}
+
+#container {
+    width: 400px;
+    height: 250px;
+    background-color: rgba(187, 185, 185,.3);
+    margin: 100px auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 2px solid #CCC;
+    border-radius: 5px;
+}
+
+#container form {
+    width: 400px;
+    height: 200px;
+    margin: 10px auto;
+}
+
+#container form table {
+    margin: 40px auto;
+    height: 200px;
+    width: 190px;
+}
+
+#container form table tr {
+    line-height: 30px;
+}
+
+#container form table tr td {
+	height: 35px;
+	line-height: 35px;
+}
+
+#container form table tr td #adRadio {
+	margin-left: -20px;
+}
+
+#container form table tr td #userRadio {
+	margin-left:20px;
+	
+
+}
+
+#container form table tr .submit {
+	margin-right:20px;
+	height: 30px;
+	width: 60px;
+	background-color: darkgrey;
+	border-radius: 3px;
+}
+
+#container form table tr td .reset {
+	margin-left:20px;
+	height: 30px;
+	width: 60px;
+	background-color: darkgrey;
+	border-radius: 3px;
+}
+
+#container form table tr td input {
+    height: 25px;
+    line-height: 25px;
+    border-radius: 3px;
+}
+
+#checkNum {
+    width:38%;
+}
+
+a {
+    text-decoration: none;
+    color: #2E2D2D;
+    font-family: Arial;
+}
+
+a div {
+    border: 1px solid #615E5E;
+    padding: 5px;
+    height: 20px;
+    width: 46px;
+    margin-left: 20px;
+    background: url(../images/validate.jpg) top left;
+    background-size: 100%;
+    display: inline;
+}
