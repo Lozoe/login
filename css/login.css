@@ -78,6 +78,11 @@ body {
     height: 25px;
     line-height: 25px;
     border-radius: 3px;
+    vertical-align:middle;
+}
+
+#container form table tr td input label {
+    vertical-align:middle;
 }
 
 #checkNum {
